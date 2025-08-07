@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
+import { sendContactEmail } from "./sendgrid";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -14,19 +15,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = contactSchema.parse(req.body);
       
-      // In a real application, you would:
-      // 1. Save to database
-      // 2. Send email notification
-      // 3. Integrate with CRM
-      
       console.log("Contact form submission:", validatedData);
       
-      // Simulate processing delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email notification
+      const emailSent = await sendContactEmail(validatedData);
+      
+      if (!emailSent) {
+        throw new Error("Failed to send email");
+      }
       
       res.json({ 
         success: true, 
-        message: "Contact form submitted successfully",
+        message: "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
         submittedAt: new Date().toISOString()
       });
     } catch (error) {

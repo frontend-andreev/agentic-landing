@@ -32,10 +32,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
       const response = await apiRequest('POST', '/api/contact', data);
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast({
         title: "Заявка отправлена",
-        description: "Спасибо! Мы свяжемся с вами в ближайшее время.",
+        description: data.message || "Спасибо! Мы свяжемся с вами в ближайшее время.",
       });
       setFormData({ name: "", email: "", description: "" });
       onOpenChange(false);
