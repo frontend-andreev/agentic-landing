@@ -79,7 +79,7 @@ export function ChatDemo() {
   };
 
   return (
-    <div className="bg-[var(--dark-secondary)] rounded-2xl p-6 shadow-2xl">
+    <div className="bg-[var(--dark-secondary)]/40 backdrop-blur rounded-2xl p-6 border border-[var(--dark-border)] shadow-2xl">
       <div className="space-y-4 mb-6 min-h-64 max-h-96 overflow-y-auto" data-testid="chat-messages">
         {messages.map((message, index) => (
           <div key={index} className={`flex items-start space-x-3 chat-message ${message.sender === 'user' ? 'justify-end' : ''}`}>
@@ -90,8 +90,8 @@ export function ChatDemo() {
             )}
             <div className={`rounded-2xl px-4 py-3 max-w-xs lg:max-w-md ${
               message.sender === 'user' 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
-                : 'bg-gray-700/50 text-white'
+                ? 'bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white' 
+                : 'bg-[var(--dark-tertiary)]/70 text-white border border-[var(--dark-border)]/50'
             }`}>
               <p className="text-sm">{message.content}</p>
             </div>

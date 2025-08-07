@@ -1,6 +1,6 @@
 # Overview
 
-This is a Russian AI customer support landing page application built with a modern full-stack architecture. The project showcases an AI agent service that promises 24/7 customer support, solving 80% of customer requests instantly. The landing page follows a premium, high-tech design approach with dark themes and neural network visual elements to convey technological sophistication and trustworthiness.
+This is a sophisticated Russian AI customer support landing page built with modern full-stack architecture. The project showcases an AI agent service for 24/7 customer support, designed as an "anti-landing page" that emphasizes elegant storytelling over aggressive marketing. The design follows premium aesthetic principles with ultra-subtle dark themes, sophisticated animations, and minimalist interactions to convey quiet confidence and technological excellence.
 
 # User Preferences
 
@@ -36,11 +36,13 @@ Preferred communication style: Simple, everyday language.
 - **Storage Interface**: Abstracted storage layer supporting both memory and database implementations
 
 ## Design System
-- **Component Library**: Comprehensive UI component system based on Radix UI primitives
-- **Theming**: CSS custom properties for consistent color scheme and spacing
-- **Typography**: Inter font family for modern, readable interface
-- **Animations**: CSS transitions and animations for smooth user interactions
-- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
+- **Design Philosophy**: "Anti-landing page" approach emphasizing sophisticated storytelling over aggressive marketing
+- **Color Palette**: Ultra-premium dark theme with subtle blue/purple accents and refined opacity variations
+- **Component Library**: Comprehensive UI component system based on Radix UI primitives with custom styling
+- **Theming**: CSS custom properties for sophisticated color gradients and spacing harmony
+- **Typography**: Inter font family with precise letter-spacing and font weights for premium feel
+- **Animations**: Subtle, slow animations focused on neural network effects and smooth state transitions
+- **Responsive Design**: Mobile-first approach with carefully considered breakpoints and layouts
 
 ## Development Workflow
 - **Hot Reloading**: Vite development server with Express middleware integration

@@ -1,16 +1,17 @@
 export function NeuralBackground() {
   return (
-    <div className="fixed inset-0 neural-bg opacity-30 pointer-events-none">
-      {/* Additional animated elements for neural network effect */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400/20 rounded-full animate-pulse"></div>
-      <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400/20 rounded-full animate-pulse delay-300"></div>
-      <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-400/15 rounded-full animate-pulse delay-700"></div>
+    <div className="fixed inset-0 neural-bg opacity-40 pointer-events-none">
+      {/* Ultra-subtle neural network nodes */}
+      <div className="absolute top-1/5 left-1/5 w-1 h-1 bg-[var(--accent-primary)]/10 rounded-full animate-pulse"></div>
+      <div className="absolute top-3/5 right-1/5 w-0.5 h-0.5 bg-[var(--accent-secondary)]/10 rounded-full animate-pulse delay-500"></div>
+      <div className="absolute top-1/2 left-3/5 w-1 h-1 bg-[var(--accent-primary)]/8 rounded-full animate-pulse delay-1000"></div>
+      <div className="absolute top-4/5 left-2/5 w-0.5 h-0.5 bg-[var(--accent-secondary)]/8 rounded-full animate-pulse delay-1500"></div>
       
-      {/* Flowing neural connections */}
-      <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/10 to-transparent"
-           style={{ animation: 'neuralFlow 15s linear infinite' }}></div>
-      <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400/10 to-transparent"
-           style={{ animation: 'neuralFlow 20s linear infinite', animationDelay: '5s' }}></div>
+      {/* Extremely subtle flowing connections */}
+      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--accent-primary)]/4 to-transparent"
+           style={{ animation: 'neuralFlow 25s linear infinite' }}></div>
+      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--accent-secondary)]/3 to-transparent"
+           style={{ animation: 'neuralFlow 35s linear infinite', animationDelay: '8s' }}></div>
     </div>
   );
 }
