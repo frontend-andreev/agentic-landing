@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { NeuralBackground } from "@/components/neural-background";
 import { ChatDemo } from "@/components/chat-demo";
 import { ContactModal } from "@/components/contact-modal";
+import { TypewriterText } from "@/components/typewriter-text";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'old' | 'ai'>('old');
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -73,10 +73,18 @@ export default function Home() {
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-8 animate-on-scroll leading-tight tracking-tight">
-            Когда ваши клиенты получают ответы
+            <TypewriterText 
+              text="Когда ваши клиенты получают ответы" 
+              delay={80}
+              startDelay={500}
+            />
             <br/>
             <span className="font-normal bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent">
-              мгновенно
+              <TypewriterText 
+                text="мгновенно" 
+                delay={120}
+                startDelay={3500}
+              />
             </span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--text-muted)] mb-16 animate-on-scroll max-w-2xl mx-auto leading-relaxed font-light">
@@ -116,93 +124,83 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Interactive Toggle */}
-            <div className="order-2 lg:order-1">
-              <div className="bg-[var(--dark-secondary)]/40 backdrop-blur rounded-2xl p-3 inline-flex border border-[var(--dark-border)]">
-                <button
-                  onClick={() => setActiveTab('old')}
-                  className={`px-5 py-2.5 rounded-xl transition-all duration-500 font-medium text-sm ${
-                    activeTab === 'old' 
-                      ? 'bg-[var(--dark-tertiary)] text-white shadow-lg' 
-                      : 'text-[var(--text-subtle)] hover:text-[var(--text-muted)]'
-                  }`}
-                  data-testid="toggle-old-approach"
-                >
-                  Как сейчас
-                </button>
-                <button
-                  onClick={() => setActiveTab('ai')}
-                  className={`px-5 py-2.5 rounded-xl transition-all duration-500 font-medium text-sm ${
-                    activeTab === 'ai' 
-                      ? 'bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white shadow-lg' 
-                      : 'text-[var(--text-subtle)] hover:text-[var(--text-muted)]'
-                  }`}
-                  data-testid="toggle-ai-agent"
-                >
-                  С AI-агентом
-                </button>
+          {/* Side by side comparison */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Current Approach */}
+            <div className="space-y-6" data-testid="old-approach-content">
+              <div className="text-center mb-8">
+                <h3 className="text-xl font-medium mb-2 text-[var(--text-subtle)]">Как сейчас</h3>
+                <div className="w-16 h-px bg-[var(--text-subtle)]/30 mx-auto"></div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="group">
+                  <div className="text-sm text-[var(--text-subtle)] mb-2 font-medium">3:47 AM</div>
+                  <div className="p-5 bg-[var(--dark-secondary)]/30 rounded-xl border border-[var(--dark-border)]/50">
+                    <p className="text-[var(--text-muted)] leading-relaxed text-sm">
+                      "Извините, наша поддержка работает с 9:00 до 18:00. 
+                      Ваш запрос будет обработан в порядке очереди..."
+                    </p>
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="text-sm text-[var(--text-subtle)] mb-2 font-medium">12 часов спустя</div>
+                  <div className="p-5 bg-[var(--dark-secondary)]/30 rounded-xl border border-[var(--dark-border)]/50">
+                    <p className="text-[var(--text-muted)] leading-relaxed text-sm">
+                      "Здравствуйте! Извините за задержку. К сожалению, 
+                      коллега, который знает ответ на ваш вопрос, сегодня болеет..."
+                    </p>
+                  </div>
+                </div>
+                <div className="p-4 bg-red-500/5 rounded-xl border border-red-500/20">
+                  <div className="text-xs text-red-400 font-medium mb-1">Результат</div>
+                  <div className="text-[var(--text-muted)] text-sm">
+                    Клиент ждёт 12+ часов, может уйти к конкурентам
+                  </div>
+                </div>
               </div>
             </div>
-            
-            {/* Content Area - More Elegant */}
-            <div className="order-1 lg:order-2">
-              <div className="relative min-h-[320px]">
-                {activeTab === 'old' ? (
-                  <div className="absolute inset-0 transition-all duration-700 ease-in-out opacity-100" data-testid="old-approach-content">
-                    <div className="space-y-8">
-                      <div className="group">
-                        <div className="text-sm text-[var(--text-subtle)] mb-2 font-medium">3:47 AM</div>
-                        <div className="p-6 bg-[var(--dark-secondary)]/30 rounded-xl border border-[var(--dark-border)]/50">
-                          <p className="text-[var(--text-muted)] leading-relaxed">
-                            "Извините, наша поддержка работает с 9:00 до 18:00. 
-                            Ваш запрос будет обработан в порядке очереди..."
-                          </p>
-                        </div>
-                      </div>
-                      <div className="group">
-                        <div className="text-sm text-[var(--text-subtle)] mb-2 font-medium">12 часов спустя</div>
-                        <div className="p-6 bg-[var(--dark-secondary)]/30 rounded-xl border border-[var(--dark-border)]/50">
-                          <p className="text-[var(--text-muted)] leading-relaxed">
-                            "Здравствуйте! Извините за задержку. К сожалению, 
-                            коллега, который знает ответ на ваш вопрос, сегодня болеет..."
-                          </p>
-                        </div>
-                      </div>
+
+            {/* AI Approach */}
+            <div className="space-y-6" data-testid="ai-agent-content">
+              <div className="text-center mb-8">
+                <h3 className="text-xl font-medium mb-2 text-[var(--accent-primary)]">С AI-агентом</h3>
+                <div className="w-16 h-px bg-[var(--accent-primary)]/50 mx-auto"></div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="group">
+                  <div className="text-sm text-[var(--accent-primary)] mb-2 font-medium">3:47 AM</div>
+                  <div className="p-5 bg-gradient-to-br from-[var(--accent-primary)]/8 to-[var(--accent-secondary)]/8 rounded-xl border border-[var(--accent-primary)]/25">
+                    <p className="text-white leading-relaxed text-sm">
+                      "Здравствуйте! Для отмены заказа №12345 перейдите в личный кабинет → 
+                      'Мои заказы' → нажмите 'Отменить'. Возврат средств займёт 3-5 дней."
+                    </p>
+                    <div className="text-xs text-[var(--text-subtle)] mt-3">
+                      Ответ получен мгновенно • AI-агент
                     </div>
                   </div>
-                ) : (
-                  <div className="absolute inset-0 transition-all duration-700 ease-in-out opacity-100" data-testid="ai-agent-content">
-                    <div className="space-y-8">
-                      <div className="group">
-                        <div className="text-sm text-[var(--accent-primary)] mb-2 font-medium">3:47 AM</div>
-                        <div className="p-6 bg-gradient-to-br from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 rounded-xl border border-[var(--accent-primary)]/20">
-                          <p className="text-white leading-relaxed">
-                            "Здравствуйте! Для отмены заказа №12345 перейдите в личный кабинет → 
-                            'Мои заказы' → нажмите 'Отменить'. Возврат средств займёт 3-5 дней."
-                          </p>
-                          <div className="text-xs text-[var(--text-subtle)] mt-3">
-                            Ответ получен мгновенно • AI-агент
-                          </div>
+                </div>
+                <div className="group">
+                  <div className="text-sm text-[var(--accent-primary)] mb-2 font-medium">В это же время</div>
+                  <div className="p-4 bg-[var(--dark-tertiary)]/50 rounded-xl border border-[var(--dark-border)]">
+                    <div className="text-xs text-[var(--text-subtle)] mb-2">Активные диалоги</div>
+                    <div className="flex space-x-2">
+                      {[1,2,3,4,5,6,7,8].map(i => (
+                        <div key={i} className="w-6 h-6 bg-[var(--accent-primary)]/20 rounded-full flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-pulse"></div>
                         </div>
-                      </div>
-                      <div className="group">
-                        <div className="text-sm text-[var(--accent-primary)] mb-2 font-medium">Одновременно</div>
-                        <div className="p-4 bg-[var(--dark-tertiary)]/50 rounded-xl border border-[var(--dark-border)]">
-                          <div className="text-xs text-[var(--text-subtle)] mb-2">Активные диалоги</div>
-                          <div className="flex space-x-2">
-                            {[1,2,3,4,5,6,7,8].map(i => (
-                              <div key={i} className="w-8 h-8 bg-[var(--accent-primary)]/20 rounded-full flex items-center justify-center">
-                                <div className="w-2 h-2 bg-[var(--accent-primary)] rounded-full animate-pulse"></div>
-                              </div>
-                            ))}
-                            <div className="text-xs text-[var(--text-muted)] flex items-center">+247</div>
-                          </div>
-                        </div>
-                      </div>
+                      ))}
+                      <div className="text-xs text-[var(--text-muted)] flex items-center">+247</div>
                     </div>
                   </div>
-                )}
+                </div>
+                <div className="p-4 bg-green-500/8 rounded-xl border border-green-500/25">
+                  <div className="text-xs text-green-400 font-medium mb-1">Результат</div>
+                  <div className="text-[var(--text-muted)] text-sm">
+                    Мгновенное решение, довольный клиент, масштабируемость
+                  </div>
+                </div>
               </div>
             </div>
           </div>
