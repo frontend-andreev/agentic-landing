@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { NeuralBackground } from "@/components/neural-background";
 import { ChatDemo } from "@/components/chat-demo";
 import { ContactModal } from "@/components/contact-modal";
+import { AILab } from "@/components/ai-lab";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -37,6 +38,13 @@ export default function Home() {
               AI-Агент
             </div>
             <div className="hidden md:flex space-x-8">
+              <button 
+                onClick={() => scrollToSection('ai-lab')}
+                className="text-[var(--text-muted)] hover:text-white transition-colors"
+                data-testid="nav-ai-lab"
+              >
+                AI-Лаборатория
+              </button>
               <button 
                 onClick={() => scrollToSection('process')}
                 className="text-[var(--text-muted)] hover:text-white transition-colors"
@@ -197,6 +205,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* AI Lab Section - Interactive Experience */}
+      <AILab onContactModalOpen={() => setIsContactModalOpen(true)} />
 
       {/* Process Section - Refined */}
       <section id="process" className="relative z-10 py-32 px-6">
