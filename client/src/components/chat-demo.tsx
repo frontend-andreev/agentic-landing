@@ -33,11 +33,20 @@ export function ChatDemo() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Scroll within the chat container only, not the entire page
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ 
+        behavior: "smooth",
+        block: "nearest" // This prevents page scroll
+      });
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
+    // Only scroll to bottom for new messages, not initial load
+    if (messages.length > 1) {
+      scrollToBottom();
+    }
   }, [messages]);
 
   const sendMessage = (content: string) => {

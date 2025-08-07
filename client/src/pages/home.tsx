@@ -13,8 +13,11 @@ export default function Home() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Fade in animation on mount
+  // Fade in animation on mount - prevent unwanted scroll
   useEffect(() => {
+    // Ensure page starts at top
+    window.scrollTo(0, 0);
+    
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach((el, index) => {
       setTimeout(() => {
