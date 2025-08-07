@@ -67,6 +67,17 @@ export default function Home() {
                 Контакт
               </button>
             </div>
+            
+            {/* Mobile contact button */}
+            <div className="md:hidden">
+              <Button
+                onClick={() => setIsContactModalOpen(true)}
+                className="px-6 py-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-primary)]/90 hover:to-[var(--accent-secondary)]/90 rounded-lg font-medium transition-all duration-500 text-white text-sm"
+                data-testid="mobile-contact-nav"
+              >
+                Связаться
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
@@ -89,10 +100,18 @@ export default function Home() {
           <p className="text-lg md:text-xl text-[var(--text-muted)] mb-16 animate-on-scroll max-w-2xl mx-auto leading-relaxed font-light">
             Наш AI не заменяет вашу команду. Он освобождает её для действительно важных задач.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center animate-on-scroll max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center animate-on-scroll max-w-lg mx-auto">
+            <Button
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-8 py-3 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-primary)]/90 hover:to-[var(--accent-secondary)]/90 rounded-lg font-medium transition-all duration-500 text-white shadow-lg"
+              data-testid="button-contact-hero"
+            >
+              Обсудить проект
+            </Button>
             <Button
               onClick={() => scrollToSection('demo')}
-              className="px-6 py-3 bg-[var(--dark-tertiary)] hover:bg-[var(--dark-secondary)] border border-[var(--dark-border)] hover:border-[var(--accent-primary)]/50 rounded-lg font-medium transition-all duration-500 text-white text-sm"
+              variant="outline"
+              className="px-6 py-3 bg-[var(--dark-tertiary)]/50 hover:bg-[var(--dark-secondary)]/70 border border-[var(--dark-border)] hover:border-[var(--accent-primary)]/50 rounded-lg font-medium transition-all duration-500 text-white"
               data-testid="button-watch-demo"
             >
               Попробовать демо
@@ -103,7 +122,7 @@ export default function Home() {
               className="px-6 py-3 text-[var(--text-muted)] hover:text-white rounded-lg font-medium transition-all duration-300 text-sm"
               data-testid="button-learn-more"
             >
-              Узнать подробнее
+              Узнать больше →
             </Button>
           </div>
         </div>
