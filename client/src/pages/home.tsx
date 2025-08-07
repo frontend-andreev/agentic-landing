@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { NeuralBackground } from "@/components/neural-background";
 import { ChatDemo } from "@/components/chat-demo";
 import { ContactModal } from "@/components/contact-modal";
-import { TypewriterText } from "@/components/typewriter-text";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -73,18 +72,10 @@ export default function Home() {
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-8 animate-on-scroll leading-tight tracking-tight">
-            <TypewriterText 
-              text="Когда ваши клиенты получают ответы" 
-              delay={80}
-              startDelay={500}
-            />
+            Когда ваши клиенты получают ответы
             <br/>
             <span className="font-normal bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent">
-              <TypewriterText 
-                text="мгновенно" 
-                delay={120}
-                startDelay={3500}
-              />
+              мгновенно
             </span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--text-muted)] mb-16 animate-on-scroll max-w-2xl mx-auto leading-relaxed font-light">
@@ -221,7 +212,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid gap-16 lg:gap-20">
+          <div className="space-y-24">
             {[
               {
                 step: "01",
@@ -248,37 +239,50 @@ export default function Home() {
                 items: ["Интеграция в сайт", "Финальное тестирование", "Запуск и мониторинг", "Техническая поддержка"]
               }
             ].map((item, index) => (
-              <div key={index} className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-                <div className="lg:text-right">
-                  <div className="inline-flex items-center space-x-4 lg:flex-row-reverse lg:space-x-reverse">
-                    <div 
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center font-medium text-sm"
-                      style={{ backgroundColor: `${item.color}20`, color: item.color }}
-                    >
-                      {item.step}
+              <div key={index} className="relative">
+                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+                  <div className="lg:text-right">
+                    <div className="inline-flex items-center space-x-4 lg:flex-row-reverse lg:space-x-reverse">
+                      <div 
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center font-medium text-sm"
+                        style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                      >
+                        {item.step}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-medium mb-1" style={{ color: item.color }}>
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-[var(--text-subtle)]">{item.subtitle}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-medium mb-1" style={{ color: item.color }}>
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-[var(--text-subtle)]">{item.subtitle}</p>
+                  </div>
+                  
+                  <div className="lg:col-span-2">
+                    <p className="text-[var(--text-muted)] leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {item.items.map((detail, i) => (
+                        <div key={i} className="flex items-center space-x-3">
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }}></div>
+                          <span className="text-sm text-[var(--text-muted)]">{detail}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
                 
-                <div className="lg:col-span-2">
-                  <p className="text-[var(--text-muted)] leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {item.items.map((detail, i) => (
-                      <div key={i} className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }}></div>
-                        <span className="text-sm text-[var(--text-muted)]">{detail}</span>
-                      </div>
-                    ))}
+                {/* Separator line - not for the last item */}
+                {index < 2 && (
+                  <div className="flex justify-center mt-16">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-px bg-gradient-to-r from-transparent via-[var(--dark-border)] to-transparent"></div>
+                      <div className="w-2 h-2 rounded-full bg-[var(--dark-border)] animate-pulse"></div>
+                      <div className="w-12 h-px bg-gradient-to-r from-[var(--dark-border)] via-transparent to-transparent"></div>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
