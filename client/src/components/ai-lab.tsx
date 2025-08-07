@@ -186,7 +186,7 @@ export function AILab({ onContactModalOpen }: AILabProps) {
   };
 
   return (
-    <section id="ai-lab" className="relative z-10 py-32 px-6 bg-[var(--dark-secondary)]/10">
+    <section id="ai-lab" className="relative z-10 py-20 px-6 bg-[var(--dark-secondary)]/10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 mb-4">

@@ -35,7 +35,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              AI-Агент
+              Agentic
             </div>
             <div className="hidden md:flex space-x-8">
               <button 
@@ -210,7 +210,7 @@ export default function Home() {
       <AILab onContactModalOpen={() => setIsContactModalOpen(true)} />
 
       {/* Process Section - Refined */}
-      <section id="process" className="relative z-10 py-32 px-6">
+      <section id="process" className="relative z-10 py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-tight">
@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* Demo Section - Interactive Experience */}
-      <section id="demo" className="relative z-10 py-32 px-6 bg-[var(--dark-secondary)]/20">
+      <section id="demo" className="relative z-10 py-20 px-6 bg-[var(--dark-secondary)]/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-tight">
@@ -325,7 +325,7 @@ export default function Home() {
       </section>
 
       {/* Investment Section - Sophisticated Approach */}
-      <section id="pricing" className="relative z-10 py-32 px-6">
+      <section id="pricing" className="relative z-10 py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-light mb-8 tracking-tight">
