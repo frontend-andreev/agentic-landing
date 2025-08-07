@@ -70,12 +70,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-[var(--dark-bg)] border-[var(--dark-border)] text-white max-w-md backdrop-blur">
+      <DialogContent className="bg-[var(--dark-bg)] border-[var(--dark-border)] text-white max-w-md backdrop-blur" aria-describedby="contact-form-description">
         <DialogHeader>
           <DialogTitle className="text-xl font-light mb-2 text-[var(--accent-primary)]">
             Обсудить проект
           </DialogTitle>
-          <p className="text-sm text-[var(--text-subtle)] font-light">
+          <p id="contact-form-description" className="text-sm text-[var(--text-subtle)] font-light">
             Расскажите о своей задаче, и мы предложим решение
           </p>
         </DialogHeader>
@@ -90,7 +90,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               value={formData.name}
               onChange={handleInputChange('name')}
               required
-              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 transition-all duration-300"
+              className="bg-gray-900/50 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all duration-300"
               placeholder="Ваше имя"
               data-testid="input-name"
             />
@@ -105,7 +105,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               value={formData.email}
               onChange={handleInputChange('email')}
               required
-              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 transition-all duration-300"
+              className="bg-gray-900/50 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all duration-300"
               placeholder="email@example.com"
               data-testid="input-email"
             />
@@ -120,7 +120,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               onChange={handleInputChange('description')}
               rows={4}
               required
-              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 resize-none transition-all duration-300"
+              className="bg-gray-900/50 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 resize-none transition-all duration-300"
               placeholder="Расскажите о специфике вашего бизнеса и задачах, которые должен решать AI-агент..."
               data-testid="textarea-description"
             />
