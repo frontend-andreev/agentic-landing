@@ -68,8 +68,11 @@ export async function sendContactEmail(formData: ContactFormData): Promise<boole
 
     await sgMail.send(msg);
     return true;
-  } catch (error) {
+  } catch (error: any) {
     console.error('SendGrid email error:', error);
+    if (error.response && error.response.body) {
+      console.error('SendGrid error details:', error.response.body);
+    }
     return false;
   }
 }

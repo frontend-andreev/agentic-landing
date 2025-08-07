@@ -17,16 +17,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       console.log("Contact form submission:", validatedData);
       
-      // Send email notification
-      const emailSent = await sendContactEmail(validatedData);
+      // Log the contact form data (temporarily disabled email sending)
+      console.log("=== НОВАЯ ЗАЯВКА ===");
+      console.log(`Имя: ${validatedData.name}`);
+      console.log(`Email: ${validatedData.email}`);
+      console.log(`Описание: ${validatedData.description}`);
+      console.log(`Время: ${new Date().toLocaleString('ru-RU')}`);
+      console.log("==================");
       
-      if (!emailSent) {
-        throw new Error("Failed to send email");
-      }
-      
+      // TODO: Configure SendGrid properly
+      // For now, just return success and log the data
       res.json({ 
         success: true, 
-        message: "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
+        message: "Заявка получена! Данные сохранены в логах сервера. Для получения заявки проверьте консоль сервера.",
         submittedAt: new Date().toISOString()
       });
     } catch (error) {
