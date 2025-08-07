@@ -70,13 +70,18 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-[var(--dark-secondary)] border-[var(--dark-border)] text-white max-w-md">
+      <DialogContent className="bg-[var(--dark-bg)] border-[var(--dark-border)] text-white max-w-md backdrop-blur">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Обсудить проект</DialogTitle>
+          <DialogTitle className="text-xl font-light mb-2 text-[var(--accent-primary)]">
+            Обсудить проект
+          </DialogTitle>
+          <p className="text-sm text-[var(--text-subtle)] font-light">
+            Расскажите о своей задаче, и мы предложим решение
+          </p>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="name" className="text-sm text-[var(--text-muted)]">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-sm text-[var(--text-muted)] font-medium">
               Имя *
             </Label>
             <Input
@@ -85,12 +90,13 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               value={formData.name}
               onChange={handleInputChange('name')}
               required
-              className="bg-gray-700/30 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-blue-400"
+              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 transition-all duration-300"
+              placeholder="Ваше имя"
               data-testid="input-name"
             />
           </div>
-          <div>
-            <Label htmlFor="email" className="text-sm text-[var(--text-muted)]">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-sm text-[var(--text-muted)] font-medium">
               Email *
             </Label>
             <Input
@@ -99,12 +105,13 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               value={formData.email}
               onChange={handleInputChange('email')}
               required
-              className="bg-gray-700/30 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-blue-400"
+              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 transition-all duration-300"
+              placeholder="email@example.com"
               data-testid="input-email"
             />
           </div>
-          <div>
-            <Label htmlFor="description" className="text-sm text-[var(--text-muted)]">
+          <div className="space-y-2">
+            <Label htmlFor="description" className="text-sm text-[var(--text-muted)] font-medium">
               Краткое описание задачи *
             </Label>
             <Textarea
@@ -113,24 +120,25 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               onChange={handleInputChange('description')}
               rows={4}
               required
-              className="bg-gray-700/30 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
+              className="bg-[var(--dark-secondary)]/30 border-[var(--dark-border)]/50 text-white placeholder:text-[var(--text-subtle)] focus:border-[var(--accent-primary)]/50 focus:ring-1 focus:ring-[var(--accent-primary)]/20 resize-none transition-all duration-300"
+              placeholder="Расскажите о специфике вашего бизнеса и задачах, которые должен решать AI-агент..."
               data-testid="textarea-description"
             />
           </div>
-          <div className="flex space-x-4 pt-4">
+          <div className="flex space-x-3 pt-4">
             <Button
               type="submit"
               disabled={submitMutation.isPending}
-              className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold"
+              className="flex-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-primary)]/90 hover:to-[var(--accent-secondary)]/90 text-white font-medium border-0 shadow-lg transition-all duration-300"
               data-testid="button-submit"
             >
-              {submitMutation.isPending ? "Отправка..." : "Отправить"}
+              {submitMutation.isPending ? "Отправка..." : "Отправить заявку"}
             </Button>
             <Button
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="px-6 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-700/50"
+              className="px-6 bg-[var(--dark-tertiary)]/50 border-[var(--dark-border)] text-[var(--text-muted)] hover:bg-[var(--dark-secondary)]/70 hover:text-white hover:border-[var(--dark-border)]/80 transition-all duration-300"
               data-testid="button-cancel"
             >
               Отмена
