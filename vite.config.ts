@@ -1,3 +1,5 @@
+// vite.config.ts
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -24,11 +26,25 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+  
+  // --- НАЧАЛО ИЗМЕНЕНИЙ ---
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    charset: 'utf8',
+    
+    // Явно указываем минификатор
+    minify: 'terser',
+    
+    // Добавляем опции для него
+    terserOptions: {
+      format: {
+        // Эта опция запрещает превращать кириллицу в \uXXXX
+        ascii_only: false,
+      },
+    },
   },
+  // --- КОНЕЦ ИЗМЕНЕНИЙ ---
+
   server: {
     fs: {
       strict: true,
