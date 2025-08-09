@@ -68,7 +68,7 @@ export function ChatDemo() {
 
     // ВАЖНО: Вставьте сюда ваш финальный рабочий URL из ngrok
     const n8nWebhookUrl =
-      "https://a3c8ec017aaf.ngrok-free.app/webhook/f8ad422c-ca30-4972-b462-4995ba69b27f";
+      "https://5f011a3bc215.ngrok-free.app/webhook/f8ad422c-ca30-4972-b462-4995ba69b27f";
 
     try {
       const response = await fetch(n8nWebhookUrl, {
